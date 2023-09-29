@@ -8,7 +8,7 @@ fi
 
 path_file="$1"
 commit_message="$2"
-git_branch="${3:-master}"  # Use "master" as the default branch if not provided
+git_branch="${3:-main}"  # Use "master" as the default branch if not provided
 
 # Execute the Git commands
 git add "$path_file"
