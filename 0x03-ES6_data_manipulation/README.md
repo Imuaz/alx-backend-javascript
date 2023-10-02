@@ -71,3 +71,16 @@ The array contains the following students in order:
 - [3-get_ids_sum.js](./3-get_ids_sum.js): A function that returns the sum of all the student ids.
   - It accepts a list of students (from `getListStudents`) as a parameter.
   - It uses the `reduce` function on the array
+
+**4. Combine**
+- [4-update_grade_by_city.js](./4-update_grade_by_city.js): A function that returns an array of students for a specific city with their new grade
+  - It accepts a list of students (from `getListStudents`), a `city` (String), and `newGrades` (Array of “grade” objects) as parameters.
+  - `newGrades` is an array of objects with the format:
+    ```
+    {
+      studentId: 31,
+      grade: 78,
+    }
+    ```
+  - If a student doesn’t have grade in `newGrades`, the final grade will be `N/A`.
+  - It uses `filter` and `map` combined.
