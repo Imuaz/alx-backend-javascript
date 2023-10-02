@@ -48,3 +48,12 @@ The following files should be added to the project directory
 Fiannly, the `npm install` command should be run when the `package.json` is added.
 
 ## Tasks:page_with_curl:
+**0. Basic list of objects**
+- [0-get_list_students.js](./0-get_list_students.js): A function that returns an array of objects.
+
+Each object have three attributes: `id` (Number), `firstName` (String), and location `(String)`.
+
+The array contains the following students in order:
+  - `Guillaume`, id: `1`, in `San Francisco`
+  - `James`, id: `2`, in `Columbia`
+  - `Serena`, id: `5`, in `San Francisco`
