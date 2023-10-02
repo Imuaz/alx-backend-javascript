@@ -1,6 +1,7 @@
 # 0x03. ES6 data manipulation
 
 **INTRODUCTION**
+
 Generally, the project covered the usage of map, filter, and reduce functions on arrays, along with an explanation of typed arrays. Additionally, it delved into the Set, Map, and WeakLink data structures, providing insights into their applications and usage in programming.
 
 ## Resources:books:
@@ -24,6 +25,7 @@ Generally, the project covered the usage of map, filter, and reduce functions on
 
 ## Setup:wrench:
 **Install NodeJS 12.11.x**
+
 (in the home directory):
 
 ```
@@ -32,6 +34,7 @@ sudo bash nodesource_setup.sh
 sudo apt install nodejs -y
 ```
 **Install Jest, Babel, and ESLint**
+
 in the project directory, Jest, Babel and ESList can be installed by using the supplied `package.json` and running `npm install` command.
 
 ## Configuration files:toolbox:
