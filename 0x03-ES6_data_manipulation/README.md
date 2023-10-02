@@ -50,10 +50,19 @@ Fiannly, the `npm install` command should be run when the `package.json` is adde
 ## Tasks:page_with_curl:
 **0. Basic list of objects**
 - [0-get_list_students.js](./0-get_list_students.js): A function that returns an array of objects.
-
 Each object have three attributes: `id` (Number), `firstName` (String), and location `(String)`.
-
 The array contains the following students in order:
   - `Guillaume`, id: `1`, in `San Francisco`
   - `James`, id: `2`, in `Columbia`
   - `Serena`, id: `5`, in `San Francisco`
+
+**1. More mapping**
+- [1-get_list_student_ids.js](./1-get_list_student_ids.js): A function that returns an array of ids from a list of object.
+  - It takes one argument which is an array of objects - and this array has the same format as `getListStudents` from the previous task.
+  - If the argument is not an array, the function returns an empty array.
+  - It uses the `map` function on the array.
+
+**2. Filter**
+- [2-get_students_by_loc.js](./2-get_students_by_loc.js): A function that returns an array of objects who are located in a specific city.
+  - It accepts a list of students (from `getListStudents`) and a `city` (string) as parameters.
+  - It uses the `filter` function on the array.
