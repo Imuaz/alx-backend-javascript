@@ -66,3 +66,8 @@ The array contains the following students in order:
 - [2-get_students_by_loc.js](./2-get_students_by_loc.js): A function that returns an array of objects who are located in a specific city.
   - It accepts a list of students (from `getListStudents`) and a `city` (string) as parameters.
   - It uses the `filter` function on the array.
+
+**3. Reduce**
+- [3-get_ids_sum.js](./3-get_ids_sum.js): A function that returns the sum of all the student ids.
+  - It accepts a list of students (from `getListStudents`) as a parameter.
+  - It uses the `reduce` function on the array
