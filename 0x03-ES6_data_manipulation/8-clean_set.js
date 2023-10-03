@@ -1,13 +1,12 @@
 export default function cleanSet(inputSet, startString) {
-  const filteredSet = [];
+    const filteredSet = [];
+    const stringLength = startString.length;
 
-  for (const value of inputSet) {
+  inputSet.forEach((value) => {
     if (value.startsWith(startString)) {
-      filteredSet.push(value.slice(startString.length));
+      filteredSet.push(value.slice(stringLength));
      }
-  }
+  });
 
-  const filteredValues = filteredSet.join('-');
-
-  return filteredValues;
+  return filteredSet.join('-');
 }
