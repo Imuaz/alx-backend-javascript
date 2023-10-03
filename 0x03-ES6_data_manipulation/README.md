@@ -115,3 +115,16 @@ The array contains the following students in order:
 - [10-update_uniq_items.js](./10-update_uniq_items.js): A function that returns an updated map for all items with initial quantity at 1.
   - It accepts a map as an argument. The map it accepts for argument is similar to the map created in the previous task.
   - For each entry of the map where the quantity is 1, it updates the quantity to 100. If updating the quantity is not possible (argument is not a map) it throws an error `Cannot process`.
+
+**11. Weak link data structure**
+- [100-weak.js](./100-weak.js): A const instance of WeakMap and a function that accepts an endpoint argument like:
+```
+  {
+    protocol: 'http',
+    name: 'getUsers',
+  }
+```
+  - The number of times the function is called for each endpoint is being tracked within th `WeakMap` .
+  - When the number of queries is greather than 5, it throws an error with the message `Endpoint load is high`.
+
+:+1:
