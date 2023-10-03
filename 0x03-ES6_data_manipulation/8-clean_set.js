@@ -3,7 +3,7 @@ export default function cleanSet(inputSet, startString) {
   const filteredValues = [];
 
   for (const value of inputSet) {
-    if (value.startsWith(startString)) {
+    if (value && value.startsWith(startString)) {
       filteredValues.push(value.slice(startString.length));
     }
   }
