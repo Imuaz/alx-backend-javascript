@@ -84,3 +84,8 @@ The array contains the following students in order:
     ```
   - If a student doesn’t have grade in `newGrades`, the final grade will be `N/A`.
   - It uses `filter` and `map` combined.
+
+**5. Typed Arrays**
+- [5-typed_arrays.js](./5-typed_arrays.js): A function that returns a new `ArrayBuffer` with an `Int8` value at a specific position.
+  - It accepts three arguments: `length` (Number), `position` (Number), and `value` (Number).
+  - If adding the value is not possible, it throws the error `Position outside range`.
