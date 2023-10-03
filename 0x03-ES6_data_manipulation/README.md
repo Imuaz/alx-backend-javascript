@@ -97,3 +97,21 @@ The array contains the following students in order:
 **7. More set data structure**
 - [7-has_array_values.js](./7-has_array_values.js): A function that returns a boolean if all the elements in the array exist within the set.
   - It accepts two arguments: a `set` (Set) and an `array` (Array).
+
+**8. Clean set**
+- [8-clean_set.js](./8-clean_set.js): A function that returns a string of all the set values that start with a specific string (`startString`).
+  - It accepts two arguments: a `set` (Set) and a `startString` (String).
+  - When a value starts with `startString` it appends the rest of the string. The string contains all the values of the set separated by `-`.
+
+**9. Map data structure**
+- [9-groceries_list.js](./9-groceries_list.js): A function that returns a map of groceries with the following items (name, quantity):
+  - `Apples`, `10`
+  - `Tomatoes`, `10`
+  - `Pasta`, `1`
+  - `Rice`, `1`
+  - `Banana`, `5`
+
+**10. More map data structure**
+- [10-update_uniq_items.js](./10-update_uniq_items.js): A function that returns an updated map for all items with initial quantity at 1.
+  - It accepts a map as an argument. The map it accepts for argument is similar to the map created in the previous task.
+  - For each entry of the map where the quantity is 1, it updates the quantity to 100. If updating the quantity is not possible (argument is not a map) it throws an error `Cannot process`.
