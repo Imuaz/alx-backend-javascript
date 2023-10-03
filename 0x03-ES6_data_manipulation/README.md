@@ -89,3 +89,11 @@ The array contains the following students in order:
 - [5-typed_arrays.js](./5-typed_arrays.js): A function that returns a new `ArrayBuffer` with an `Int8` value at a specific position.
   - It accepts three arguments: `length` (Number), `position` (Number), and `value` (Number).
   - If adding the value is not possible, it throws the error `Position outside range`.
+
+**6. Set data structure**
+- [6-set.js](./6-set.js): A function that returns a `Set` from an array.
+  - It accepts an argument (Array, of any kind of element).
+
+**7. More set data structure**
+- [7-has_array_values.js](./7-has_array_values.js): A function that returns a boolean if all the elements in the array exist within the set.
+  - It accepts two arguments: a `set` (Set) and an `array` (Array).
