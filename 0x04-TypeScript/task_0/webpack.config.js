@@ -37,7 +37,3 @@ module.exports = {
   }
 };
 
-//added this to eliminate warning while building
-module.exports = {
-  mode: 'development', // can also be set to 'production' or 'none'
-};
