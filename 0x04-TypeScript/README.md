@@ -25,4 +25,3 @@ The project covered a range of TypeScript topics, including basic types, interfa
 - [webpack.config.js](./webpack.config.js)
 
 ## Tasks:page_with_curl:
-
