@@ -73,3 +73,16 @@ export function executeWork(employee: DirectorInterface | TeacherInterface): str
 console.log(executeWork(createEmployee(200)));
 console.log(executeWork(createEmployee(1000)));
 
+// String literal Subject
+export type Subjects = 'Math' | 'History';
+
+export function teachClass(todayClass: Subjects): string {
+    if (todayClass === 'Math') {
+        return 'Teachig Math';
+    } else if (todayClass === 'History') {
+        return 'Teaching History';
+    }
+}
+
+console.log(teachClass('Math'));
+console.log(teachClass('History'));
