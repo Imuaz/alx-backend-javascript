@@ -1,37 +1,55 @@
+const fs = require('fs').promises;
 const http = require('http');
-const countStudents = require('./3-read_file_async.js');
 
-const serverHandler = async (req, res) => {
+function countStudents(filepath) {
+  return fs.readFile(filepath, 'utf-8')
+    .then((data) => {
+      const students = data
+        .split('\n')
+        .map((student) => student.split(','))
+        .filter((student) => student.length === 4 && student[0] !== 'firstname')
+        .map((student) => ({ name: student[0], field: student[3] }));
+
+      const getStudentsByField = (field) => students
+        .filter((student) => student.field === field)
+        .map((student) => student.name);
+
+      const numberOfStudents = students.length;
+      const csStudents = getStudentsByField('CS');
+      const sweStudents = getStudentsByField('SWE');
+
+      return {
+        numberOfStudents,
+        csStudents,
+        sweStudents,
+      };
+    })
+    .catch(() => {
+      throw new Error('Cannot load the database');
+    });
+}
+
+const app = http.createServer(async (req, res) => {
   if (req.url === '/') {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/plain' );
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
     res.end('Hello Holberton School!');
   } else if (req.url === '/students') {
     try {
-      // Read the database path from the command line arguments
       const path = process.argv[2];
-      // Call countStudents function asynchronously
-      const studentsData = await countStudents(path);
-      // Set the response content type and send the data
-      res.statusCode = 200;
-      res.setHeader('Content-Type', 'text/plain');
-      res.end(`This is the list of our students\n${studentsData}`);
-    } catch (error) {
-	// Handle errors when reading the database file
-      res.statusCode = 404;
-      res.setHeader('Content-Type', 'text/plain');
-      res.end('This is the list of our students\nCannot load the database');
-      console.error(error);
-    }
-  } else {
-      // Return a 404 response for other paths
-    res.statusCode = 404;
-    res.setHeader('Content-Type', 'text/plain');
-    res.end('Not Found');
-  }
-};
+      console.log('File path:', path); // Log the file path for debugging
 
-const app = http.createServer(serverHandler);
+      const { numberOfStudents, csStudents, sweStudents } = await countStudents(path);
+
+      res.writeHead(200, { 'Content-Type': 'text/plain' });
+      const response = `This is the list of our students\nNumber of students: ${numberOfStudents}\nNumber of students in CS: ${csStudents.length}. List: ${csStudents.join(', ')}\nNumber of students in SWE: ${sweStudents.length}. List: ${sweStudents.join(', ')}`;
+      res.end(response);
+    } catch (error) {
+      console.error(error.message); // Log the error message for debugging
+      res.statusCode = 404;
+      res.end('This is the list of our students\nCannot load the database');
+    }
+  }
+});
 
 app.listen(1245, 'localhost');
 
