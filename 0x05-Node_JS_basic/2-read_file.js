@@ -1,4 +1,3 @@
-// eslint-disable-next-line max-len
 const fs = require('fs');
 
 function countStudents(filepath) {
