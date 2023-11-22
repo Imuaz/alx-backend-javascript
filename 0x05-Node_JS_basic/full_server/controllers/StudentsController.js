@@ -27,6 +27,6 @@ class StudentsController {
       response.status(500).send('Cannot load the database');
     });
   }
-}
+};
 
 module.exports = StudentsController;
