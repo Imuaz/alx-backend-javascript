@@ -1,28 +1,26 @@
-import { readFile } from 'fs/promises';
+const { readFile } = require('fs');
 
-const readDatabase = async (path) => {
-  try {
-    const returnData = await readFile(path, 'utf-8');
-
-    const data = returnData.split('\n');
-
-    const allStudents = data
-      .slice(1)
-      .filter((v) => v.length !== 0)
-      .map((v) => v.split(','));
-
-    const csStudents = allStudents
-      .filter((student) => student[3].endsWith('CS'))
-      .map((student) => student[0]);
-
-    const sweStudents = allStudents
-      .filter((student) => student[3].endsWith('SWE'))
-      .map((student) => student[0]);
-
-    return { CS: csStudents, SWE: sweStudents };
-  } catch (error) {
-    throw new Error('Cannot load the database');
-  }
+module.exports = function readDatabase(filePath) {
+  const students = {};
+  return new Promise((resolve, reject) => {
+    readFile(filePath, (err, data) => {
+      if (err) {
+        reject(err);
+      } else {
+        const lines = data.toString().split('\n');
+        const noHeader = lines.slice(1);
+        for (let i = 0; i < noHeader.length; i += 1) {
+          if (noHeader[i]) {
+            const field = noHeader[i].toString().split(',');
+            if (Object.prototype.hasOwnProperty.call(students, field[3])) {
+              students[field[3]].push(field[0]);
+            } else {
+              students[field[3]] = [field[0]];
+            }
+          }
+        }
+        resolve(students);
+      }
+    });
+  });
 };
-
-export default readDatabase;
