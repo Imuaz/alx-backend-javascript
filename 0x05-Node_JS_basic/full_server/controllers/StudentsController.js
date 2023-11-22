@@ -15,7 +15,6 @@ class StudentsController {
       response.status(500).send('Cannot load the database');
     });
   }
-
   static getAllStudentsByMajor(request, response) {
     const field = request.params.major;
     readDatabase(process.argv[2].toString()).then((students) => {
