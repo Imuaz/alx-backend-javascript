@@ -5,7 +5,7 @@ const { expect } = require('chai');
 describe('Cart page', () => {
   const baseUrl = 'http://localhost:7865/cart/';
 
-  const makeRequest = async (id) => {
+  const makeRequest = (id) => {
     const url = `${baseUrl}${id}`;
     return new Promise((resolve) => {
       request(url, (err, res, body) => {
@@ -31,6 +31,6 @@ describe('Cart page', () => {
 
   it('checks correct content when :id is NOT a number (404)', async () => {
     const { body } = await makeRequest('invalid');
-    expect(body).to.contain('Not Found');
+    expect(body).to.contain('Cannot GET /cart/invalid');
   });
 });
