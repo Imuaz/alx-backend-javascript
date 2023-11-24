@@ -8,6 +8,6 @@ app.use('/', router);
 app.use('/students', router);
 app.use('/students/:major', router);
 
-app.listen(port);
+app.listen(port, 'localhost');
 
 export default app;
