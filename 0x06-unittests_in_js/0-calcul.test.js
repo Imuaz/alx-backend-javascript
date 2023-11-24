@@ -1,32 +1,34 @@
 const assert = require('assert');
 const calculateNumber = require('./0-calcul.js');
 
-// Test cases for the calculateNumber function
 describe('calculateNumber', () => {
-  it('should return the correct sum for positive decimal numbers', () => {
-    const result = calculateNumber(3.14, 7.89);
-    assert.strictEqual(result, 11);
+  it('should round numbers and return the correct sum', () => {
+    const res = calculateNumber(1, 2);
+    assert.strictEqual(res, 3);
   });
 
-  it('should return the correct sum for negative decimal numbers', () => {
-    const result = calculateNumber(-5.6, -2.3);
-    assert.strictEqual(result, -8);
+  it('should round numbers and return the correct sum', () => {
+    const res = calculateNumber(1.4, 2.2);
+    assert.strictEqual(res, 3);
   });
 
-  it('should return the correct sum for a mix of positive and negative numbers', () => {
-    const result = calculateNumber(8.7, -3.2);
-    assert.strictEqual(result, 6);
+  it('should round numbers and return the correct sum', () => {
+    const res = calculateNumber(1.6, 2.7);
+    assert.strictEqual(res, 5);
   });
 
-  it('should return the correct sum for zero values', () => {
-    const result = calculateNumber(0, 0);
-    assert.strictEqual(result, 0);
+  it('should round numbers and return the correct sum', () => {
+    const res = calculateNumber(0, 0);
+    assert.strictEqual(res, 0);
   });
 
-  it('should return the correct sum for integer values', () => {
-    const result = calculateNumber(10, 5);
-    assert.strictEqual(result, 15);
+  it('should round numbers and return the correct sum', () => {
+    const res = calculateNumber(-1.6, -1.7);
+    assert.strictEqual(res, -4);
   });
 
-  // Add more test cases as needed
+  it('should round numbers and return the correct sum', () => {
+    const res = calculateNumber(-1.4, -1.3);
+    assert.strictEqual(res, -2);
+  });
 });
