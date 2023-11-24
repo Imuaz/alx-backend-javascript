@@ -1,26 +1,25 @@
-const { readFile } = require('fs');
+const { readFile } = require('fs').promises;
 
 module.exports = function readDatabase(filePath) {
-  const students = {};
-  return new Promise((resolve, reject) => {
-    readFile(filePath, (err, data) => {
-      if (err) {
-        reject(err);
-      } else {
-        const lines = data.toString().split('\n');
-        const noHeader = lines.slice(1);
-        for (let i = 0; i < noHeader.length; i += 1) {
-          if (noHeader[i]) {
-            const field = noHeader[i].toString().split(',');
-            if (Object.prototype.hasOwnProperty.call(students, field[3])) {
-              students[field[3]].push(field[0]);
-            } else {
-              students[field[3]] = [field[0]];
-            }
+  return new Promise(async (resolve, reject) => {
+    try {
+      const data = await readFile(filePath, 'utf-8');
+      const lines = data.split('\n').slice(1);
+      const students = lines.reduce((acc, line) => {
+        if (line) {
+          const [name, , , field] = line.split(',').map((item) => item.trim());
+
+          if (!acc[field]) {
+            acc[field] = [name];
+          } else {
+            acc[field].push(name);
           }
         }
-        resolve(students);
-      }
-    });
+        return acc;
+      }, {});
+      resolve(students);
+    } catch (error) {
+      reject(error);
+    }
   });
 };
