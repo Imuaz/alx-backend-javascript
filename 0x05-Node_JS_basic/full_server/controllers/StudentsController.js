@@ -15,6 +15,7 @@ class StudentsController {
       response.status(500).send('Cannot load the database');
     }
   }
+
   static async getAllStudentsByMajor(request, response) {
     try {
       const field = request.params.major;
