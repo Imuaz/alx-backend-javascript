@@ -1,9 +1,8 @@
 const { readFile } = require('fs').promises;
 
-module.exports = function readDatabase(filePath)
-{
-  return new Promise((resolve, reject) => {
-    readFile(filePath, 'utf-8')
+module.exports = function readDatabase(filePath) {
+    return new Promise((resolve, reject) => {
+      readFile(filePath, 'utf-8')
       .then((data) => {
         const lines = data.split('\n').slice(1);
 	const students = lines.reduce((acc, line) => {
